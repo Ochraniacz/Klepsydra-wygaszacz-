@@ -24,7 +24,7 @@ jobs:
 
       - name: Accept Android SDK licenses
         run: |
-          yes | sdkmanager --licenses || true
+          yes y | head -n 200 | sdkmanager --licenses
 
       - name: Install Gradle CLI
         run: |
