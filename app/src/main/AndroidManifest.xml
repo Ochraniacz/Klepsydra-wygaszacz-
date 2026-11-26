@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:allowBackup="true"
+        android:label="Klepsydra Minutowa"
+        android:theme="@style/Theme.AppCompat.NoActionBar">
+
+        <activity
+            android:name=".HourglassSettingsActivity"
+            android:exported="true"
+            android:label="Ustawienia klepsydry" />
+
+        <service
+            android:name=".HourglassDreamService"
+            android:exported="true"
+            android:label="Klepsydra"
+            android:permission="android.permission.BIND_DREAM_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.dreams.DreamService" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data
+                android:name="android.service.dreams"
+                android:resource="@xml/hourglass_dream_info" />
+        </service>
+
+    </application>
+</manifest>
